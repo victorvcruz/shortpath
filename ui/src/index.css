@@ -1,0 +1,68 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-gradient-to-br from-slate-50 to-blue-50 min-h-screen;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-white rounded-xl shadow-lg border border-slate-200 p-6;
+  }
+  
+  .btn-primary {
+    @apply bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white font-semibold py-2.5 px-6 rounded-lg transition-all duration-200 shadow-md hover:shadow-lg transform hover:-translate-y-0.5;
+  }
+  
+  .btn-secondary {
+    @apply bg-white hover:bg-slate-50 text-slate-700 font-semibold py-2.5 px-6 rounded-lg border border-slate-300 transition-all duration-200 shadow-sm hover:shadow-md;
+  }
+  
+  .input-field {
+    @apply w-full px-4 py-2.5 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 transition-colors duration-200;
+  }
+}
+
+/* SVG Graph Visualization Styles */
+.graph-visualization svg {
+  display: block;
+}
+
+.graph-visualization svg .edge {
+  stroke: #999 !important;
+  stroke-width: 2px !important;
+  opacity: 0.8 !important;
+  fill: none !important;
+}
+
+.graph-visualization svg .edge.highlighted {
+  stroke: #ff6b6b !important;
+  stroke-width: 4px !important;
+}
+
+.graph-visualization svg .node {
+  fill: #69b3a2 !important;
+  stroke: #fff !important;
+  stroke-width: 2px !important;
+  cursor: pointer;
+}
+
+.graph-visualization svg .node-label {
+  fill: #333 !important;
+  font-size: 14px !important;
+  font-weight: bold !important;
+  text-anchor: middle !important;
+  dominant-baseline: central !important;
+  pointer-events: none !important;
+}
+
+.graph-visualization svg .edge-label {
+  fill: #666 !important;
+  font-size: 12px !important;
+  text-anchor: middle !important;
+  dominant-baseline: central !important;
+  pointer-events: none !important;
+}

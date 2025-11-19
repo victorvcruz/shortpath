@@ -1,0 +1,45 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:7-alpine
+    container_name: shortpath-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+
+  api:
+    build:
+      context: ./api
+      dockerfile: Dockerfile
+    container_name: shortpath-api
+    ports:
+      - "8000:8000"
+    environment:
+      - REDIS_URL=redis://redis:6379
+    depends_on:
+      - redis
+    volumes:
+      - ./api:/app
+    command: uvicorn app.main:app --host 0.0.0.0 --port 8000 --reload
+
+  ui:
+    build:
+      context: ./ui
+      dockerfile: Dockerfile
+    container_name: shortpath-ui
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_API_URL=http://localhost:8000
+      - CHOKIDAR_USEPOLLING=true
+      - BROWSER=none
+    volumes:
+      - ./ui:/app
+      - /app/node_modules
+    command: npm start
+
+volumes:
+  redis_data:
