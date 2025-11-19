@@ -125,24 +125,3 @@ shortest-path/
 ├── docker-compose.yml      # Development environment
 └── README.md
 ```
-
-## Development Guidelines
-
-This project follows the [ShortPath Constitution](specs/001-shortpath-system/constitution.md):
-
-1. **Modular Architecture** - Independent API, Engine, and UI components
-2. **API-First Design** - REST API implemented before UI
-3. **Performance-First** - Optimized for computational workloads
-4. **Test-Driven Development** - Tests before implementation
-5. **User Story Driven** - Organized by priority (P1, P2, P3)
-
-## Contributing
-
-1. Follow the constitution principles
-2. Write tests before implementation
-3. Ensure performance targets are met
-4. Update documentation for API changes
-
-## License
-
-MIT License
